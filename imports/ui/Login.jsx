@@ -39,8 +39,14 @@ export default class Task extends Component {
 
   login() {
     console.log('Trying to log in with', this.username, 'and', this.password)
+
     Meteor.loginWithPassword(this.username, this.password, function (error) {
-      console.log('Logged in successfully.')
+      if (error) {
+        console.log('An error was encountered while logging in.', error)
+      } else {
+        console.log('Logged in successfully.', Meteor.userId())
+        window.location = '/'
+      }
     })
   }
 }

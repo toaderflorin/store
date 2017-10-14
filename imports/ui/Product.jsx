@@ -9,8 +9,8 @@ export default class Product extends Component {
 
   render() {
     return (
-      <li className={taskClassName}>
-        <button onClick={this.deleteTask} >Delete</button>
+      <li>
+        <button className='product' onClick={this.deleteTask} >Delete</button>
         <span className="text">
           {this.props.product.text}
         </span>
@@ -19,6 +19,6 @@ export default class Product extends Component {
   }
 
   deleteTask() {
-    Meteor.call('tasks.remove', this.props.product._id)
+    Meteor.call('products.remove', this.props.product._id)
   }
 }

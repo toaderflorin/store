@@ -5,6 +5,8 @@ import { Meteor } from 'meteor/meteor'
 import { Products } from '../api/products.js'
 import Product from './Product.jsx'
 
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -17,29 +19,24 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
-    Meteor.call('tasks.insert', text)
+    Meteor.call('products.insert', text)
     ReactDOM.findDOMNode(this.refs.textInput).value = ''
   }
 
   renderProducts() {
-    let filteredProducts = this.props.products
+    const filteredProducts = this.props.products
     return filteredProducts.map((product) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id
       return <Product key={product._id} product={product} />
     })
   }
 
-  logoutClick() {
-    Meteor.call('users.logout', this.username, this.password, function (error) {
-      if (!Meteor.isServer && !error) {
-        window.location = '/'
-      }
-    })
+  logoutClick(e) {
+    e.preventDefault()
+    Meteor.logout()
   }
 
   render() {
-    console.log('USER', Meteor.user())
-
     const loginVisible = Meteor.user() ? 'visible' : 'hidden'
     const logoutVisible = !Meteor.user() ? 'visible' : 'hidden'
 
@@ -48,16 +45,14 @@ class App extends Component {
         <header>
           <h1>The Store</h1>
           <div>
-            <a href="/login" style={{ visible: loginVisible }}>Log in</a>
-            <a href="/#" style={{ visible: logoutVisible }} onClick={this.logoutClick}>Log out</a>
+            {!Meteor.user() && <a href="/login">Log in</a>}
+            {Meteor.user() && <a href="/#" onClick={this.logoutClick}>Log out</a>}
           </div>
           <br/>
 
-          METEOR: {Meteor.user()}
-
           {this.props.currentUser ?
             <form className="new-task" onSubmit={this.handleSubmit} >
-              <input type="text" ref="textInput" placeholder="Type to add new tasks" />
+              <input type="text" ref="textInput" placeholder="Type to add new products" />
             </form> : ''
           }
         </header>
