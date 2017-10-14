@@ -2,19 +2,15 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { createContainer } from 'meteor/react-meteor-data'
 import { Meteor } from 'meteor/meteor'
-import { Tasks } from '../api/tasks.js'
-import Task from './Task.jsx'
+import { Products } from '../api/products.js'
+import Product from './Product.jsx'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.logoutClick = this.logoutClick.bind(this)
-    this.toggleHideCompleted = this.toggleHideCompleted.bind(this)
-
     this.state = {
-      hideCompleted: false
-
     }
   }
 
@@ -25,17 +21,12 @@ class App extends Component {
     ReactDOM.findDOMNode(this.refs.textInput).value = ''
   }
 
-  renderTasks() {
-    let filteredTasks = this.props.tasks
-
-    return filteredTasks.map((task) => {
+  renderProducts() {
+    let filteredProducts = this.props.products
+    return filteredProducts.map((product) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id
-      return <Task key={task._id} task={task} />
+      return <Product key={product._id} product={product} />
     })
-  }
-
-  toggleHideCompleted() {
-    this.setState({ hideCompleted: !this.state.hideCompleted });
   }
 
   logoutClick() {
@@ -47,16 +38,23 @@ class App extends Component {
   }
 
   render() {
-    console.log(Meteor.userId())
+    console.log('USER', Meteor.user())
+
+    const loginVisible = Meteor.user() ? 'visible' : 'hidden'
+    const logoutVisible = !Meteor.user() ? 'visible' : 'hidden'
 
     return (
       <div className="container">
         <header>
-          <h1>Todo List ({this.props.incompleteCount})</h1>
+          <h1>The Store</h1>
           <div>
-            <a href="/login">Log in</a> | <a href="/#" onClick={this.logoutClick}>Log out</a>
+            <a href="/login" style={{ visible: loginVisible }}>Log in</a>
+            <a href="/#" style={{ visible: logoutVisible }} onClick={this.logoutClick}>Log out</a>
           </div>
           <br/>
+
+          METEOR: {Meteor.user()}
+
           {this.props.currentUser ?
             <form className="new-task" onSubmit={this.handleSubmit} >
               <input type="text" ref="textInput" placeholder="Type to add new tasks" />
@@ -65,7 +63,7 @@ class App extends Component {
         </header>
 
         <ul>
-          {this.renderTasks()}
+          {this.renderProducts()}
         </ul>
       </div>
     )
@@ -73,11 +71,14 @@ class App extends Component {
 }
 
 export default createContainer(() => {
-  Meteor.subscribe('tasks')
+  Meteor.subscribe('products')
 
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
+    products: Products.find({}, {
+      sort: {
+        createdAt: -1
+      }
+    }).fetch(),
     currentUser: Meteor.user()
   }
 }, App)

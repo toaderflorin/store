@@ -8,18 +8,13 @@ export default class Accounts extends Component {
     this.create = this.create.bind(this)
     this.usernameChanged = this.usernameChanged.bind(this)
     this.passwordChanged = this.passwordChanged.bind(this)
-
-    this.state = {
-      errorMessage: ''
-    }
+    this.state = { errorMessage: '' }
   }
 
   render() {
     return <div className="container">
       <div style={{ padding: '15px' }}>
-        <h2>
-          Create user account
-        </h2>
+        <h2>Create user account</h2>
         <div>
           <input className="wide" type="text" name="text" placeholder="Username" onChange={this.usernameChanged} />
         </div>
@@ -51,7 +46,6 @@ export default class Accounts extends Component {
 
       if (error) {
         this.errorMessage = 'Cannot add account, it might already exist.'
-        console.log(error)
       }
     })
   }
