@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { FlowRouter } from 'meteor/kadira:flow-router'
 
 export default class Task extends Component {
   constructor(props) {

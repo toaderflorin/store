@@ -4,21 +4,23 @@ import classnames from 'classnames'
 export default class Product extends Component {
   constructor() {
     super()
-    this.deleteTask = this.deleteTask.bind(this)
+    this.deleteProduct = this.deleteProduct.bind(this)
   }
 
   render() {
     return (
-      <li>
-        <button className='product' onClick={this.deleteTask} >Delete</button>
+      <div className="product">
+        <button className="delete" onClick={this.deleteProduct} >Delete</button>
         <span className="text">
           {this.props.product.text}
         </span>
-      </li>
+      </div>
     )
   }
 
-  deleteTask() {
-    Meteor.call('products.remove', this.props.product._id)
+  deleteProduct() {
+    if (confirm('Are you sure?')) {
+      Meteor.call('products.remove', this.props.product._id)
+    }
   }
 }

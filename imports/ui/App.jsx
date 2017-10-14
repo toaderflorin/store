@@ -4,8 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data'
 import { Meteor } from 'meteor/meteor'
 import { Products } from '../api/products.js'
 import Product from './Product.jsx'
-
-
+import { FlowRouter } from 'meteor/kadira:flow-router'
 
 class App extends Component {
   constructor(props) {
@@ -13,53 +12,64 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.logoutClick = this.logoutClick.bind(this)
     this.state = {
+      loggedIn: false
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  handleSubmit(e) {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     Meteor.call('products.insert', text)
-    ReactDOM.findDOMNode(this.refs.textInput).value = ''
   }
 
-  renderProducts() {
-    const filteredProducts = this.props.products
-    return filteredProducts.map((product) => {
-      const currentUserId = this.props.currentUser && this.props.currentUser._id
-      return <Product key={product._id} product={product} />
+  loginClick(e) {
+    FlowRouter.go('/login')
+  }
+
+
+  logoutClick(e) {
+    // e.preventDefault()
+    Meteor.logout(function(error) {
+      if (error) {
+        console.log('Logout failed.', error)
+      } else {
+        // this.setState(){
+        //   loggedin: false
+        // })
+
+        // forcing a refresh
+        window.location = '/'
+      }
+
+      // FlowRouter.go('/')
     })
   }
 
-  logoutClick(e) {
-    e.preventDefault()
-    Meteor.logout()
-  }
-
   render() {
-    const loginVisible = Meteor.user() ? 'visible' : 'hidden'
-    const logoutVisible = !Meteor.user() ? 'visible' : 'hidden'
+    const filteredProducts = this.props.products
+    const renderedProducts = filteredProducts.map((product) => {
+      return <Product key={product._id} product={product} />
+    })
 
     return (
       <div className="container">
-        <header>
-          <h1>The Store</h1>
+        <h1>The Store</h1>
+        <div>
+          {!Meteor.user() && <a href="/login" onClick={this.loginClick}>Log in</a>}
+          {Meteor.user() && <a href="/" onClick={this.logoutClick}>Log out</a>}
+        </div>
+
+        <br/>
+
+        {Meteor.userId() ?
           <div>
-            {!Meteor.user() && <a href="/login">Log in</a>}
-            {Meteor.user() && <a href="/#" onClick={this.logoutClick}>Log out</a>}
-          </div>
-          <br/>
+            <form onSubmit={this.handleSubmit} >
+              <input className="add-product"  type="text" ref="textInput" placeholder="Type to add new products" />
+            </form>
+            <br/>
+          </div> : ''
+        }
 
-          {this.props.currentUser ?
-            <form className="new-task" onSubmit={this.handleSubmit} >
-              <input type="text" ref="textInput" placeholder="Type to add new products" />
-            </form> : ''
-          }
-        </header>
-
-        <ul>
-          {this.renderProducts()}
-        </ul>
+        {renderedProducts}
       </div>
     )
   }
@@ -70,10 +80,7 @@ export default createContainer(() => {
 
   return {
     products: Products.find({}, {
-      sort: {
-        createdAt: -1
-      }
-    }).fetch(),
-    currentUser: Meteor.user()
+      sort: { createdAt: -1 }
+    }).fetch()
   }
 }, App)

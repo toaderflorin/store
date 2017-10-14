@@ -41,52 +41,23 @@ input {
   width: 250px;
 }
 
-.new-task input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: 1px solid gray;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-  padding: 5px;
+.product {
+  margin: 5px 0;
+  height: 36px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
 }
 
-.new-task input:focus{
-  outline: 0;
+.add-product{
+  width: 500px;
 }
 
 .delete {
-  float: right;
   font-size: 1em;
-  position: relative;
   padding: 3px 7px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  background: white;
-}
-
-li {
-  position: relative;
-  list-style: none;
-  padding: 15px 0;
-  border-bottom: #eee solid 1px;
+  margin-right: 5px;
 }
 
 @media (max-width: 600px) {
-  li {
-    padding: 12px 15px;
-  }
-
-  .search {
-    width: 150px;
-    clear: both;
-  }
-
-  .new-task input {
-    padding-bottom: 5px;
-  }
 }
