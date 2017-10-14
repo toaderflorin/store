@@ -11,6 +11,7 @@ body {
   margin: 0;
   font-size: 14px;
   color: #555;
+  box-sizing: border-box;
 }
 
 .container {
@@ -40,13 +41,22 @@ input {
 .wide {
   width: 250px;
 }
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .product {
-  margin: 5px 0;
   height: 36px;
   border-bottom: 1px solid #eee;
   display: flex;
   align-items: center;
+  width: 280px;
+  height: 200px;
+  background: #f3f3f3;
+  margin: 0 8px 8px 0;
+  padding: 10px;
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .add-product{
@@ -57,7 +67,4 @@ input {
   font-size: 1em;
   padding: 3px 7px;
   margin-right: 5px;
-}
-
-@media (max-width: 600px) {
 }

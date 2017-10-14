@@ -10,13 +10,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.logoutClick = this.logoutClick.bind(this)
-    this.state = {
-      loggedIn: false
-    }
+    this.logoutClick = this.logoutClick.bind(this)  
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     Meteor.call('products.insert', text)
   }
@@ -27,20 +25,12 @@ class App extends Component {
 
 
   logoutClick(e) {
-    // e.preventDefault()
     Meteor.logout(function(error) {
       if (error) {
         console.log('Logout failed.', error)
       } else {
-        // this.setState(){
-        //   loggedin: false
-        // })
-
-        // forcing a refresh
         window.location = '/'
       }
-
-      // FlowRouter.go('/')
     })
   }
 
@@ -69,7 +59,9 @@ class App extends Component {
           </div> : ''
         }
 
-        {renderedProducts}
+        <div className="product-list">
+          {renderedProducts}
+        </div>
       </div>
     )
   }
