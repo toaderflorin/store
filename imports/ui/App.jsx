@@ -26,7 +26,7 @@ class App extends Component {
   logoutClick(e) {
     Meteor.logout(function(error) {
       if (!error) {
-        window.location = '/'
+        FlowRouter.go('/')
       }
     })
   }
@@ -43,9 +43,11 @@ class App extends Component {
           <div className="container">
             <h1>The Store</h1>
             <div>
-              {!Meteor.user() && <a href="/login" onClick={this.loginClick}>Log in</a>}
-              {Meteor.user() && <div>Welcome <b><i>{Meteor.user().emails[0].address}</i></b>,
-                <a href="/" onClick={this.logoutClick}>log out</a></div>}
+              {Meteor.userId()}
+
+              {!Meteor.userId() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
+              {Meteor.userId() ? <div>Welcome <b><i>{Meteor.userId()}</i></b>,
+                <a href="/" onClick={this.logoutClick}>log out</a></div> : ''}
 
               <br/>
 
