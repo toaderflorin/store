@@ -44,12 +44,8 @@ class App extends Component {
             <h1>The Store</h1>
             <div>
               {!Meteor.user() && <a href="/login" onClick={this.loginClick}>Log in</a>}
-<<<<<<< HEAD
               {Meteor.user() && <div>Welcome <b><i>{Meteor.user().emails[0].address}</i></b>,
                 <a href="/" onClick={this.logoutClick}>log out</a></div>}
-=======
-              {Meteor.user() && <div>Welcome <b><i>{Meteor.user().emails[0].address}</i></b>, <a href="/" onClick={this.logoutClick}>log out</a></div>}
->>>>>>> 93d73c840af59ea22d691f9c70028a840186c4b1
 
               <br/>
 
