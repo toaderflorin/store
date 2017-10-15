@@ -10,22 +10,20 @@ export default class Task extends Component {
   }
 
   render() {
-    return <div className="container">
-      <br/>
-      <h1>Log In</h1>
-      <br/>
-      <div>Username</div>
-      <div>
-        <input onChange={this.usernameChanged}/>
-      </div>
-      <div>Password</div>
-      <div>
-        <input type="password" onChange={this.passwordChanged}/>
-      </div>
-      <input type="button" value="Log In" onClick={this.login}/>
-      <br/><br/>
-      <div>
-        Don't have an account? <a href="/accounts">Create</a> one.
+    return <div className="fullscreen">
+      <div className="login">
+        <h1>Log In</h1>
+        <div>
+          <input placeholder="Username" onChange={this.usernameChanged}/>
+        </div>
+        <div>
+          <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
+        </div>
+        <input type="button" value="Log In" onClick={this.login}/>
+        <br/><br/>
+        <div>
+          Don't have an <a href="/accounts">account</a>?
+        </div>
       </div>
     </div>
   }
@@ -39,12 +37,8 @@ export default class Task extends Component {
   }
 
   login() {
-    console.log('Trying to log in with', this.username, 'and', this.password)
-
     Meteor.loginWithPassword(this.username, this.password, function (error) {
-      if (error) {
-        console.log('An error was encountered while logging in.', error)
-      } else {
+      if (!error) {
         console.log('Logged in successfully.', Meteor.userId())
         window.location = '/'
       }

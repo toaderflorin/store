@@ -6,7 +6,11 @@ export const Products = new Mongo.Collection('products')
 
 if (Meteor.isServer) {
   Meteor.publish('products', function () {
-    return Products.find()
+    return Products.find({
+      owner: {
+        $eq: Meteor.userId()
+      }
+    })
   })
 }
 
@@ -20,7 +24,7 @@ Meteor.methods({
       text,
       createdAt: new Date(),
       owner: Meteor.userId(),
-      username: Meteor.user().emails[0].address,
+      // username: Meteor.user().emails[0].address,
     })
   },
 
