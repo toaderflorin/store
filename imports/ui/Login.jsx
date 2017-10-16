@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-export default class Task extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props)
     this.login = this.login.bind(this)
@@ -12,17 +12,19 @@ export default class Task extends Component {
   render() {
     return <div className="fullscreen">
       <div className="login">
-        <h1>Log In</h1>
-        <div>
-          <input placeholder="Username" onChange={this.usernameChanged}/>
-        </div>
-        <div>
-          <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
-        </div>
-        <input type="button" value="Log In" onClick={this.login}/>
-        <br/><br/>
-        <div>
-          Don't have an <a href="/accounts">account</a>?
+        <div className="login-inner">
+          <h1>Log In</h1>
+          <div>
+            <input placeholder="Username" onChange={this.usernameChanged}/>
+          </div>
+          <div>
+            <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
+          </div>
+          <input type="button" value="Log In" onClick={this.login}/>
+          <br/><br/>
+          <div>
+            Don't have an <a href="/accounts">account</a>?
+          </div>
         </div>
       </div>
     </div>
@@ -39,8 +41,7 @@ export default class Task extends Component {
   login() {
     Meteor.loginWithPassword(this.username, this.password, function (error) {
       if (!error) {
-        console.log('Logged in successfully.', Meteor.userId())
-        window.location = '/'
+        FlowRouter.go('/')
       }
     })
   }

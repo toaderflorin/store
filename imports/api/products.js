@@ -7,9 +7,9 @@ export const Products = new Mongo.Collection('products')
 if (Meteor.isServer) {
   Meteor.publish('products', function () {
     return Products.find({
-      owner: {
-        $eq: Meteor.userId()
-      }
+      // owner: {
+      //   $eq: Meteor.userId()
+      // }
     })
   })
 }
@@ -38,15 +38,6 @@ Meteor.methods({
   //   Tasks.update(taskId, {
   //     $set: {
   //       checked: setChecked
-  //     }
-  //   })
-  // },
-
-  // 'products.setPrivate'(taskId, setToPrivate) {
-  //   const task = Tasks.findOne(taskId)
-  //   Tasks.update(taskId, {
-  //     $set: {
-  //       private: setToPrivate
   //     }
   //   })
   // },
