@@ -8,8 +8,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        This is the search page.
+      <div>
+        <div className="fullscreen black">
+          This is the search page.
+        </div>
+        <div style={{ height: "400px" }}>
+          This is something else.
+        </div>
       </div>
     )
   }

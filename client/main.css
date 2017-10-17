@@ -5,7 +5,25 @@ body {
   margin: 0;
   font-size: 14px;
   color: #555;
-  box-sizing: border-box;
+}
+
+h1 {
+  margin-left: 0;
+}
+
+input {
+  margin: 3px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+input:hover {
+  background-color: #fdfdfd;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 155, 255, 0.3);
 }
 
 .fullscreen {
@@ -15,7 +33,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
+  display: inline-block;
+}
+
+.black {
+  background-color: black;
 }
 
 .container {
@@ -49,24 +72,6 @@ body {
   margin: 0;
 }
 
-h1 {
-  margin-left: 0;
-}
-
-input {
-  margin: 3px 0;
-  padding: 5px;
-  border: 1px solid #ccc;
-}
-
-input:hover {
-  background-color: #fdfdfd;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 155, 255, 0.3);
-}
 
 .wide {
   width: 250px;
