@@ -12,6 +12,7 @@ export default class Accounts extends Component {
   }
 
   render() {
+
     return <div className="container">
       <div style={{ padding: '15px' }}>
         <h2>Create user account</h2>

@@ -1,19 +1,50 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 
+
+
 export default class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+     Meteor.subscribe('products')
+     this.state = {
+       products: Products.find({}, { sort: { createdAt: -1 } }).fetch()
+     }
+
+     this.render = this.render.bind(this)
   }
 
   render() {
+    const renderedProducts = this.state.products.map(function (product) {
+      return <Product key={product._id} product={product} />
+    })
+
     return (
-      <div>
-        <div className="fullscreen black">
-          This is the search page.
+      <div className="root">
+        <div className="header">
+          <div className="container">
+            <h1>The Store</h1>
+            <div>
+              {!Meteor.userId() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
+              {Meteor.userId() ? <div>Welcome <b><i>{Meteor.userId()}</i></b>,
+                <a href="/" onClick={this.logoutClick}>log out</a></div> : ''}
+              <br/>
+
+              {Meteor.userId() ?
+                <div>
+                  <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
+                  <button className="add-button" onClick={this.handleSubmit}>Add</button>
+                  <br/>
+                </div> : ''
+              }
+            </div>
+          </div>
         </div>
-        <div style={{ height: "400px" }}>
-          This is something else.
+        <div className="container">
+          <br/>
+          <div className="product-list">
+            {renderedProducts}
+          </div>
         </div>
       </div>
     )
