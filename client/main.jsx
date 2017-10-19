@@ -8,8 +8,6 @@ import Admin from '../imports/ui/Admin.jsx'
 import Accounts from '../imports/ui/Accounts.jsx'
 import Login from '../imports/ui/Login.jsx'
 
-const Products = new Mongo.Collection('products')
-
 FlowRouter.route('/', {
   name: 'Root',
   action() {

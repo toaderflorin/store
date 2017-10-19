@@ -1,7 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 
+let Products = Mongo.Collection.get('products')
 
+if(!Products) {
+  Products = new Mongo.Collection('products')
+}
 
 export default class App extends Component {
   constructor(props) {
