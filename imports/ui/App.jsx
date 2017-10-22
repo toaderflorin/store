@@ -6,12 +6,20 @@ import { Products } from '../api/products'
 export default class App extends Component {
   constructor(props) {
     super(props)
-     Meteor.subscribe('products')
-     this.state = {
-       products: Products.find({}, { sort: { createdAt: -1 } }).fetch()
-     }
+    this.render = this.render.bind(this)
+    this.state = {
+      products: []
+    }
+  }
 
-     this.render = this.render.bind(this)
+  componentDidMount() {
+    const handle = Meteor.subscribe('products')
+    Tracker.autorun(() => {
+      let products = Products.find({}, { sort: { createdAt: -1 } }).fetch()
+      this.setState({
+        products
+      })
+    })
   }
 
   render() {
@@ -28,7 +36,7 @@ export default class App extends Component {
               {!Meteor.userId() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
               {Meteor.userId() ? <div>Welcome <b><i>{Meteor.userId()}</i></b>,
                 <a href="/" onClick={this.logoutClick}>log out</a></div> : ''}
-              <br/>            
+              <br/>
             </div>
           </div>
         </div>
