@@ -1,5 +1,6 @@
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { createContainer } from 'meteor/react-meteor-data'
+import { Tracker } from 'meteor/tracker'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Meteor } from 'meteor/meteor'
@@ -11,6 +12,20 @@ export default class Admin extends Component {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.logoutClick = this.logoutClick.bind(this)
+    this.state = {
+      products: []
+    }
+  }
+
+  componentDidMount() {
+    const handle = Meteor.subscribe('products')
+
+    Tracker.autorun(() => {
+      let prods = Products.find({}, { sort: { createdAt: -1 } }).fetch()
+      this.setState({
+        products: prods
+      })
+    })
   }
 
   handleSubmit(e) {
@@ -32,8 +47,8 @@ export default class Admin extends Component {
   }
 
   render() {
-    const filteredProducts = this.props.products
-    const renderedProducts = filteredProducts.map((product) => {
+    const filteredProducts = this.state.products
+    const renderedProducts  = filteredProducts.map((product) => {
       return <Product key={product._id} product={product} />
     })
 

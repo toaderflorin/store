@@ -1,11 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
-
-let Products = Mongo.Collection.get('products')
-
-if(!Products) {
-  Products = new Mongo.Collection('products')
-}
+import Product from './Product'
+import { Products } from '../api/products'
 
 export default class App extends Component {
   constructor(props) {
@@ -32,15 +28,7 @@ export default class App extends Component {
               {!Meteor.userId() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
               {Meteor.userId() ? <div>Welcome <b><i>{Meteor.userId()}</i></b>,
                 <a href="/" onClick={this.logoutClick}>log out</a></div> : ''}
-              <br/>
-
-              {Meteor.userId() ?
-                <div>
-                  <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
-                  <button className="add-button" onClick={this.handleSubmit}>Add</button>
-                  <br/>
-                </div> : ''
-              }
+              <br/>            
             </div>
           </div>
         </div>
