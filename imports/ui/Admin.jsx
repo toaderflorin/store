@@ -39,6 +39,7 @@ export default class Admin extends Component {
 
   logoutClick(e) {
     Meteor.logout(function(error) {
+      console.log('Logged out successfully')
       if (!error) {
         FlowRouter.go('/')
       }
@@ -63,7 +64,7 @@ export default class Admin extends Component {
 
               <br/>
 
-              {Meteor.userId() ?
+              {Meteor.user() ?
                 <div>
                   <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
                   <button className="add-button" onClick={this.handleSubmit}>Add</button>
