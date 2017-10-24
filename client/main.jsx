@@ -3,10 +3,13 @@ import { Meteor } from 'meteor/meteor'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { render } from 'react-dom'
 import { mount } from 'react-mounter';
-import App from '../imports/ui/App.jsx'
+import Search from '../imports/ui/Search.jsx'
 import Admin from '../imports/ui/Admin.jsx'
 import Accounts from '../imports/ui/Accounts.jsx'
 import Login from '../imports/ui/Login.jsx'
+import { Router, Route } from 'react-router';
+
+const browserHistory = createBrowserHistory()
 
 FlowRouter.route('/', {
   name: 'Root',
