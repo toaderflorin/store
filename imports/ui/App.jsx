@@ -13,8 +13,8 @@ export default class App extends Component {
         Page Header
       </div>
       <div className="content">
-        {content that changes}
-      </div>      
+        {/* {content that changes} */}
+      </div>
     </div>
   }
 }

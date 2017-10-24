@@ -1,4 +1,3 @@
-import { FlowRouter } from 'meteor/kadira:flow-router'
 import { createContainer } from 'meteor/react-meteor-data'
 import { Tracker } from 'meteor/tracker'
 import React, { Component, PropTypes } from 'react'

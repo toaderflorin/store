@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { FlowRouter } from 'meteor/kadira:flow-router'
 
 export default class Login extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ export default class Login extends Component {
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   }
 
   usernameChanged(event) {
@@ -40,9 +39,9 @@ export default class Login extends Component {
 
   login() {
     Meteor.loginWithPassword(this.username, this.password, function (error) {
-      if (!error) {
-        FlowRouter.go('/')
-      }
+      // if (!error) {
+      //   FlowRouter.go('/')
+      // }
     })
   }
 }
