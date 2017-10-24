@@ -1,6 +1,5 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
-// import { FlowRouter } from 'meteor/kadira:flow-router'
 import { render } from 'react-dom'
 import { mount } from 'react-mounter';
 import Search from '../imports/ui/Search.jsx'
@@ -9,49 +8,32 @@ import Accounts from '../imports/ui/Accounts.jsx'
 import Login from '../imports/ui/Login.jsx'
 import { Router, Route } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
+import { Component, PropTypes } from 'react'
 
 const browserHistory = createBrowserHistory()
 
-renderRoutes = () => (
-  <Router history={browserHistory}>
-    <div>
-      <Route exact path="/" component={Search}/>
-      {/* <Route path="lists/:id" component={ListPageContainer}/>
-      <Route path="signin" component={AuthPageSignIn}/>
-      <Route path="join" component={AuthPageJoin}/>
-      <Route path="*" component={NotFoundPage}/> */}
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return <div>      
+      <Router history={browserHistory}>
+        <div>
+          <Route exact path="/" component={Search}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/admin" component={Admin}/>
+        </div>
+      </Router>
     </div>
-  </Router>
+  }
+}
+
+renderRoutes = () => (
+  <Route path="/" render={matchProps => <App {...matchProps} />} />
 )
 
 Meteor.startup(() => {
-  render(renderRoutes(), document.getElementById('app'));
+  render(<App/>, document.getElementById('app'));
 });
-
-// FlowRouter.route('/', {
-//   name: 'Root',
-//   action() {
-//     mount(App, { main: <App/> })
-//   }
-// })
-//
-// FlowRouter.route('/login', {
-//   name: 'Login',
-//   action() {
-//     mount(Login, { main: <Login/> })
-//   }
-// })
-//
-// FlowRouter.route('/accounts', {
-//   name: 'Accounts',
-//   action() {
-//     mount(Accounts, { main: <Accounts/> })
-//   }
-// })
-//
-// FlowRouter.route('/admin', {
-//   name: 'Admin',
-//   action() {
-//     mount(Admin, { main: <Admin/> })
-//   }
-// })

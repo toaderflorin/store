@@ -26,6 +26,10 @@ input:focus {
   box-shadow: 0 0 5px rgba(0, 155, 255, 0.3);
 }
 
+#app {
+  /*height: 100%;*/
+}
+
 .fullscreen {
   width: 100%;
   height: calc(100%);
@@ -34,6 +38,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   position: absolute;
+  background: red;
   display: inline-block;
 }
 
