@@ -9,8 +9,6 @@ import { createBrowserHistory } from 'history'
 
 export const browserHistory = createBrowserHistory()
 
-console.log('BROWSER HISTORY:', browserHistory)
-
 renderRoutes = () => (
   <Route path="/" render={matchProps => <App {...matchProps} />} />
 )

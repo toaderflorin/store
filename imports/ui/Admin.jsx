@@ -4,13 +4,14 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Meteor } from 'meteor/meteor'
 import Product from './Product.jsx'
+import Header from './Header.jsx'
 import { Products } from '../api/products.js'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class Admin extends Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.logoutClick = this.logoutClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)    
     this.state = {
       products: []
     }
@@ -32,19 +33,6 @@ export default class Admin extends Component {
     Meteor.call('products.insert', text)
   }
 
-  loginClick(e) {
-    FlowRouter.go('/login')
-  }
-
-  logoutClick(e) {
-    Meteor.logout(function(error) {
-      console.log('Logged out successfully')
-      if (!error) {
-        FlowRouter.go('/')
-      }
-    })
-  }
-
   render() {
     const filteredProducts = this.state.products
     const renderedProducts  = filteredProducts.map((product) => {
@@ -53,26 +41,7 @@ export default class Admin extends Component {
 
     return (
       <div className="root">
-        <div className="header">
-          <div className="container">
-            <h1>The Store</h1>
-            <div>
-              {!Meteor.userId() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
-              {Meteor.userId() ? <div>Welcome <b><i>{Meteor.userId()}</i></b>,
-                <a href="/" onClick={this.logoutClick}>log out</a></div> : ''}
-
-              <br/>
-
-              {Meteor.user() ?
-                <div>
-                  <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
-                  <button className="add-button" onClick={this.handleSubmit}>Add</button>
-                  <br/>
-                </div> : ''
-              }
-            </div>
-          </div>
-        </div>
+        <Header />
         <div className="container">
           <br/>
           <div className="product-list">
