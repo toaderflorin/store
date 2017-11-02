@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class Login extends Component {
   constructor(props) {
@@ -39,9 +40,7 @@ export default class Login extends Component {
 
   login() {
     Meteor.loginWithPassword(this.username, this.password, function (error) {
-      // if (!error) {
-      //   FlowRouter.go('/')
-      // }
+      browserHistory.push('/')
     })
   }
 }

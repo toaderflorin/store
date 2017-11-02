@@ -10,7 +10,7 @@ import { Router, Route } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { Component, PropTypes } from 'react'
 
-const browserHistory = createBrowserHistory()
+export const browserHistory = createBrowserHistory()
 
 export default class App extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   render() {
-    return <div>      
+    return <div>
       <Router history={browserHistory}>
         <div>
           <Route exact path="/" component={Search}/>
