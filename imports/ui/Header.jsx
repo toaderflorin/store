@@ -11,7 +11,6 @@ export default class Header extends Component {
   }
 
   logoutClick(e) {
-    console.log('logging out')
     Meteor.logout(function(error) {
       if (!error) {
         browserHistory.push('/')

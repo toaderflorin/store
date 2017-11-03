@@ -10,6 +10,7 @@ export default class Product extends Component {
   }
 
   render() {
+    console.log(this.props.product)
     return (
       <div className="product">
         <button className="delete" onClick={this.deleteProduct} >Delete</button>
@@ -28,6 +29,6 @@ export default class Product extends Component {
   }
 
   onDetailsClick() {
-    browserHistory.push('details/1')
+    browserHistory.push('details/' + this.props.product._id)
   }
 }

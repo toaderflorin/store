@@ -14,5 +14,5 @@ renderRoutes = () => (
 )
 
 Meteor.startup(() => {
-  render(<App/>, document.getElementById('app'));
-});
+  render(<App/>, document.getElementById('app'))
+})

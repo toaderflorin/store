@@ -19,6 +19,7 @@ export default class Admin extends Component {
 
   componentDidMount() {
     const handle = Meteor.subscribe('products')
+
     Tracker.autorun(() => {
       let products = Products.find({}, { sort: { createdAt: -1 } }).fetch()
       this.setState({
