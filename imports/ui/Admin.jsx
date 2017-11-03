@@ -11,7 +11,7 @@ import { browserHistory } from '../../client/main.jsx'
 export default class Admin extends Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)    
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       products: []
     }
@@ -42,7 +42,15 @@ export default class Admin extends Component {
     return (
       <div className="root">
         <Header />
+
         <div className="container">
+          {Meteor.userId() ?
+            <div>
+              <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
+              <button className="add-button" onClick={this.handleSubmit}>Add</button>
+              <br/>
+            </div> : ''
+          }
           <br/>
           <div className="product-list">
             {renderedProducts}
