@@ -12,7 +12,7 @@ Meteor.methods({
       username: username,
       email: username,
       password: password,
-      account: {
+      profile: {
         name: 'User Name'
       }
     })

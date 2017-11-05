@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 export default class Header extends Component {
   constructor(props) {
     super(props)
-    console.log(Link)
     this.logoutClick = this.logoutClick.bind(this)
   }
 
@@ -28,14 +27,15 @@ export default class Header extends Component {
           <div>
             <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link>
           </div>
-          <p>
+          <br/>
+          <div>
             {!Meteor.user() ? <a href="/login" onClick={this.loginClick}>Log in</a> : ''}
             {Meteor.user() ?
-              <div>Welcome <b><i>{Meteor.userId()}</i></b>
+              <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
               <br/>
               <a href="/" onClick={this.logoutClick}>log out</a></div>
               : ''}
-          </p>
+          </div>
         </div>
       </div>
     )
