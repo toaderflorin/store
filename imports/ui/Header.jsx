@@ -12,7 +12,7 @@ export default class Header extends Component {
   }
 
   logoutClick(e) {
-    Meteor.logout(function(error) {
+    Meteor.logout((error) => {
       if (!error) {
         browserHistory.push('/')
       }

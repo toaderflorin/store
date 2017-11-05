@@ -10,7 +10,6 @@ export default class Product extends Component {
   }
 
   render() {
-    console.log(this.props.product)
     return (
       <div className="product">
         <button className="delete" onClick={this.deleteProduct} >Delete</button>

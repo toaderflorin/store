@@ -21,8 +21,7 @@ export default class ProductDetails extends Component {
     })
   }
 
-  render() {
-    console.log(this.state.product)
+  render() {    
     return (
       <div>
         <Header/>

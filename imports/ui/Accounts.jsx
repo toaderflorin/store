@@ -8,6 +8,8 @@ export default class Accounts extends Component {
     this.create = this.create.bind(this)
     this.usernameChanged = this.usernameChanged.bind(this)
     this.passwordChanged = this.passwordChanged.bind(this)
+    this.fullnameChanged = this.fullnameChanged.bind(this)
+
     this.state = { errorMessage: '' }
   }
 
@@ -16,7 +18,10 @@ export default class Accounts extends Component {
       <div style={{ padding: '15px' }}>
         <h2>Create user account</h2>
         <div>
-          <input className="wide" type="text" name="text" placeholder="Username" onChange={this.usernameChanged} />
+          <input className="wide" type="text" name="text" placeholder="Full name" onChange={this.fullnameChanged} />
+        </div>
+        <div>
+          <input className="wide" type="text" name="text" placeholder="User name" onChange={this.usernameChanged} />
         </div>
         <div>
           <input className="wide" type="password" name="text" placeholder="Password" onChange={this.passwordChanged} />
@@ -34,12 +39,16 @@ export default class Accounts extends Component {
     this.username = event.target.value
   }
 
+  fullnameChanged(event) {
+    this.fullname = event.target.value
+  }
+
   passwordChanged(event) {
     this.password = event.target.value
   }
 
   create() {
-    Meteor.call('users.insert', this.username, this.password, function (error) {
+    Meteor.call('users.insert', this.username, this.password, this.fullname, function (error) {
       if (!Meteor.isServer && !error) {
         window.location = '/'
       }
