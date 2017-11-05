@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import Product from './Product'
 import { Products } from '../api/products'
-import Header from './Header.jsx'
 import SearchResult from './SearchResult.jsx'
 
 export default class Search extends Component {
@@ -31,7 +30,6 @@ export default class Search extends Component {
 
     return (
       <div className="root">
-        <Header/>
         <div className="container">
           <input className="add-product" type="text" ref="textInput" placeholder="Search" />
           <button className="add-button">Search</button>

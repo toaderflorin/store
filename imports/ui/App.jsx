@@ -6,6 +6,7 @@ import Admin from './Admin'
 import Accounts from './Accounts'
 import ProductDetails from './ProductDetails'
 import Login from './Login.jsx'
+import Header from './Header.jsx'
 
 import { browserHistory } from '../../client/main.jsx'
 
@@ -18,6 +19,7 @@ export default class App extends Component {
     return <div>
       <Router history={browserHistory}>
         <div>
+          <Header/>
           <Route exact path="/" component={Search}/>
           <Route path="/login" component={Login}/>
           <Route path="/admin" component={Admin}/>

@@ -4,7 +4,6 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Meteor } from 'meteor/meteor'
 import Product from './Product.jsx'
-import Header from './Header.jsx'
 import { Products } from '../api/products.js'
 import { browserHistory } from '../../client/main.jsx'
 
@@ -41,7 +40,6 @@ export default class Admin extends Component {
 
     return (
       <div className="root">
-        <Header />
         <div className="container">
           {Meteor.userId() ?
             <div>

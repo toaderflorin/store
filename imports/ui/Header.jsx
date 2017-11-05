@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Router, Route } from 'react-router'
 import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
