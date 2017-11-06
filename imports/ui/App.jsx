@@ -5,8 +5,9 @@ import Search from './Search'
 import Admin from './Admin'
 import Accounts from './Accounts'
 import ProductDetails from './ProductDetails'
-import Login from './Login.jsx'
-import Header from './Header.jsx'
+import Login from './Login'
+import Header from './Header'
+import AddProduct from './AddProduct'
 
 import { browserHistory } from '../../client/main.jsx'
 
@@ -23,6 +24,7 @@ export default class App extends Component {
           <Route exact path="/" component={Search}/>
           <Route path="/login" component={Login}/>
           <Route path="/admin" component={Admin}/>
+          <Route path="/new" component={AddProduct}/>
           <Route path="/details/:id" render={(props) => (
             <ProductDetails {...props} pass_to_page_content='hi' />
           )}/>
