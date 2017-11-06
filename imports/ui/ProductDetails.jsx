@@ -21,16 +21,13 @@ export default class ProductDetails extends Component {
     })
   }
 
-  render() {    
+  render() {
     return (
-      <div>
-        <Header/>
-        <div className="container">
-          <h2>This is the product detail page.</h2>
-          {this.state.product ?
-            this.state.product.text : ''
-          }
-        </div>
+      <div className="container">
+        <h2>This is the product detail page.</h2>
+        {this.state.product ?
+          this.state.product.text : ''
+        }
       </div>
     )
   }

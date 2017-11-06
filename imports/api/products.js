@@ -16,9 +16,11 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   'products.search'() {
-
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('not-authorized')
+    }
   },
-  
+
   'products.insert'(text) {
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized')
@@ -32,6 +34,10 @@ Meteor.methods({
   },
 
   'products.remove'(productId) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('not-authorized')
+    }
+    
     Products.remove(productId)
   },
 })

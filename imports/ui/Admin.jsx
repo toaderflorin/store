@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Meteor } from 'meteor/meteor'
 import Product from './Product.jsx'
+import { Link } from 'react-router-dom'
 import { Products } from '../api/products.js'
 import { browserHistory } from '../../client/main.jsx'
 
@@ -43,9 +44,7 @@ export default class Admin extends Component {
         <div className="container">
           {Meteor.userId() ?
             <div>
-              <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
-              <button className="add-button" onClick={this.handleSubmit}>Add</button>
-              <br/>
+              <Link to='/new'>Add new</Link><br/><br/>                          
             </div> : ''
           }
           <br/>

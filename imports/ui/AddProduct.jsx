@@ -1,5 +1,6 @@
 
 import React, { Component, PropTypes } from 'react'
+import { Products } from '../api/products.js'
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -8,28 +9,20 @@ export default class AddProduct extends Component {
   }
 
   onAddClick() {
-    alert('Click!')
+    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
+    Meteor.call('products.insert', text)
   }
 
   render() {
     return (
       <div className="container">
-        <h2>Add Item</h2>
-        <div>
+        {Meteor.userId() ?
           <div>
-            <b>Text</b>
-          </div>
-          <input className="add-product" type="text" ref="textInput" placeholder="Text" />
-        </div>
-        <div>
-          <div>
-            <b>Bla</b>
-          </div>
-          <input className="add-product" type="text" ref="textInput" placeholder="URL" />
-        </div>
-        <div>
-          <button onClick={this.onAddClick}>Add</button>
-        </div>
+            <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
+            <button className="add-button" onClick={this.onAddClick}>Add</button>
+            <br/>
+          </div> : ''
+        }
       </div>
     )
   }
