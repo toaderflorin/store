@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { browserHistory } from '../../client/main.jsx'
+import { Session } from 'meteor/session'
 
 export default class Login extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ export default class Login extends Component {
       if (error) {
         alert('Could not log in.')
       } else {
+        Session.set('basket', [])
         browserHistory.push('/')
       }
     })

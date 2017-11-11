@@ -26,7 +26,7 @@ export default class Header extends Component {
         <div className="container">
           <h1>The Store</h1>
           <div>
-            <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link>
+            <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link> | <Link to='/basket'>Basket</Link>
           </div>
           <br/>
           <div>
