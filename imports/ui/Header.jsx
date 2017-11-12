@@ -24,13 +24,16 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="container">
-          <h1>The Store</h1>
-          <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link> | <Link to='/basket'>Basket</Link>          
-          <div style={{ float: "right" }}>
+          <div style={{ float: "left" }}>
+            <h1>The Store</h1>
+            <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link>
+          </div>
+
+          <div style={{ float: "right", textAlign: "right", marginTop: "20px" }}>
             {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
               <br/>
-              <a href="/" onClick={this.logoutClick}>log out</a></div>
+               <Link to='/basket'>Basket</Link> | <a href="/" onClick={this.logoutClick}>log out</a></div>
               : ''}
           </div>
         </div>

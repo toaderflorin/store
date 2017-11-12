@@ -2,8 +2,8 @@ import { createContainer } from 'meteor/react-meteor-data'
 import { Tracker } from 'meteor/tracker'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { Meteor } from 'meteor/meteor'
 import Product from './Product.jsx'
+import { Meteor } from 'meteor/meteor'
 import { Link } from 'react-router-dom'
 import { Products } from '../api/products.js'
 import { browserHistory } from '../../client/main.jsx'
@@ -44,7 +44,7 @@ export default class Admin extends Component {
         <div className="container">
           {Meteor.userId() ?
             <div>
-              <Link to='/new'>Add new</Link><br/><br/>                          
+              <Link to='/new'>Add new</Link><br/><br/>
             </div> : ''
           }
           <br/>
