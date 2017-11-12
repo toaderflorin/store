@@ -9,7 +9,7 @@ export default class Basket extends Component {
 
   render() {
     const basket = Session.get('basket')
-    const obj = basket.map((i) => <div key={(Math.random() * 100000).toString()}>{i.text}</div>)
+    const obj = basket.map((i) => <div className="basket-item" key={(Math.random() * 100000).toString()}>{i.text}</div>)
 
     return (
       <div className="container">

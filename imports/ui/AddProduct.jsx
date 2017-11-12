@@ -1,6 +1,6 @@
-
 import React, { Component, PropTypes } from 'react'
 import { Products } from '../api/products.js'
+import ReactDOM from 'react-dom'
 
 export default class AddProduct extends Component {
   constructor(props) {

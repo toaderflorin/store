@@ -9,14 +9,13 @@ export default class SearchResult extends Component {
 
   addClick() {
     const arr = Session.get('basket')
-    console.log(arr)
     arr.push(this.props.product)
     Session.set('basket', arr)
   }
 
   render() {
     return (
-      <div style={{ padding: '7px', backgroundColor: '#f3f3f3', marginBottom: '4px'}}>
+      <div className="basket-item">
         <div>{this.props.product.text}</div>
         <button onClick={this.addClick}>Add to Basket</button>
       </div>
