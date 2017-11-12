@@ -16,8 +16,8 @@ export default class SearchResult extends Component {
   render() {
     return (
       <div className="basket-item">
-        <div>{this.props.product.text}</div>
-        <button onClick={this.addClick}>Add to Basket</button>
+        {this.props.product.text}
+        <button style={{ float: "right" }} onClick={this.addClick}>Add to Basket</button>
       </div>
     )
   }

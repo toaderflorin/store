@@ -1,10 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { Session } from 'meteor/session'
+import { browserHistory } from '../../client/main.jsx'
 import classnames from 'classnames'
 
 export default class Basket extends Component {
   constructor() {
     super()
+  }
+
+  componentWillMount() {
+    const basket = Session.get('basket')
+    if (!basket) {
+      browserHistory.push('/login')
+    }
   }
 
   render() {

@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import Product from './Product'
 import { Products } from '../api/products'
 import SearchResult from './SearchResult.jsx'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class Search extends Component {
   constructor(props) {
@@ -10,6 +11,13 @@ export default class Search extends Component {
     this.render = this.render.bind(this)
     this.state = {
       products: []
+    }
+  }
+
+  componentWillMount() {
+    const basket = Session.get('basket')
+    if (!basket) {
+      browserHistory.push('/login')
     }
   }
 
