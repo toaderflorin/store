@@ -10,7 +10,6 @@ import ProductDetails from './ProductDetails'
 import Header from './Header'
 import Basket from './Basket'
 import AddProduct from './AddProduct'
-
 import { browserHistory } from '../../client/main.jsx'
 
 const DefaultLayout = ({ component: Component, ...rest }) => {
