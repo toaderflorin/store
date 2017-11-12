@@ -13,10 +13,11 @@ body {
 }
 
 button {
-  border-radius: 2px;
-  padding: 7px;
+  border-radius: 16px;
+  padding: 7px 12px;
+  margin: 1px;
   outline: none;
-  background-color: #eee;
+  background-color: #fff;
   border: 1px solid lightgray;
 }
 
@@ -42,9 +43,9 @@ input:focus {
 }
 
 .basket-item {
-  padding: 5px;
-  background-color: #f3f3f3;
-  margin-bottom: 5px;
+  padding: 7px 15px;
+  background-color: #f8f8f8;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,14 +116,14 @@ input:focus {
 
 .product {
   height: 36px;
-  border-bottom: 1px solid #eee;
   display: flex;
   align-items: center;
   width: 200px;
   height: 200px;
-  background: #fbfbfb;
   margin: 0 12px 12px 0;
   padding: 10px;
+  background-size: cover;
+  box-shadow: 0px 8px 15px -8px rgba(0, 0, 0, 0.3);
 }
 
 .add-product {
@@ -132,10 +133,4 @@ input:focus {
   margin-right: 5px;
   padding: 0 5px;
   box-sizing: border-box;
-}
-
-.delete {
-  font-size: 1em;
-  padding: 3px 7px;
-  margin-right: 5px;
 }

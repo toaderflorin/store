@@ -21,13 +21,14 @@ Meteor.methods({
     }
   },
 
-  'products.insert'(text) {
+  'products.insert'(product) {
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized')
     }
 
     Products.insert({
-      text,
+      text: product.text,
+      url: product.url,
       createdAt: new Date(),
       owner: Meteor.userId(),
     })
@@ -37,7 +38,7 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized')
     }
-    
+
     Products.remove(productId)
   },
 })

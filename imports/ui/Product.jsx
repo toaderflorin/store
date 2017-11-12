@@ -3,15 +3,18 @@ import classnames from 'classnames'
 import { browserHistory } from '../../client/main.jsx'
 
 export default class Product extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    console.log(props.product)
     this.deleteProduct = this.deleteProduct.bind(this)
     this.onDetailsClick = this.onDetailsClick.bind(this)
   }
 
   render() {
     return (
-      <div className="product">
+      <div className="product" style={{
+        backgroundImage: `url('${this.props.product.url}')`
+      }}>
         <button className="delete" onClick={this.deleteProduct} >Delete</button>
         <button className="delete" onClick={this.onDetailsClick}>Details</button>
         <span className="text">

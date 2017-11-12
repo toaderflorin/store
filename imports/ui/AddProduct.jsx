@@ -11,7 +11,12 @@ export default class AddProduct extends Component {
 
   onAddClick() {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
-    Meteor.call('products.insert', text)
+    const url = ReactDOM.findDOMNode(this.refs.urlInput).value.trim()
+
+    Meteor.call('products.insert',
+      { text, url }
+    )
+
     browserHistory.push('/admin')
   }
 
@@ -20,8 +25,19 @@ export default class AddProduct extends Component {
       <div className="container">
         {Meteor.userId() ?
           <div>
-            <input className="add-product" type="text" ref="textInput" placeholder="Product name" />
-            <input className="add-product" type="text" ref="price" placeholder="Product price" />
+            <b>Name</b>
+            <p>
+              <input className="add-product" type="text" ref="textInput" placeholder="Product name"/>
+            </p>
+            <b>Price</b>
+            <p>
+              <input className="add-product" type="text" ref="price" placeholder="Product price"/>
+            </p>
+            <b>URL</b>
+            <p>
+              <input className="add-product" type="text" ref="urlInput" placeholder="Image URL"/>
+            </p>
+
             <button className="add-button" onClick={this.onAddClick}>Add</button>
             <br/>
           </div> : ''
