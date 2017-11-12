@@ -33,7 +33,7 @@ export default class Header extends Component {
             {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
               <br/>
-               <Link to='/basket'>Basket</Link> | <a href="/" onClick={this.logoutClick}>log out</a></div>
+               <Link to='/basket'>Basket</Link> | <a href="/" onClick={this.logoutClick}>Log out</a></div>
               : ''}
           </div>
         </div>

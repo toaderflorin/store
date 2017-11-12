@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { Users } from '../api/accounts.js'
 import { Router, Route } from 'react-router'
 import Login from './Login'
-import Main from './Main'
 import Search from './Search'
 import Admin from './Admin'
 import Accounts from './Accounts'
@@ -12,16 +11,7 @@ import Basket from './Basket'
 import AddProduct from './AddProduct'
 import { browserHistory } from '../../client/main.jsx'
 
-const DefaultLayout = ({ component: Component, ...rest }) => {
-  return (
-    <Route {...rest} render={matchProps => (
-      <div className="DefaultLayout">
-        <Header/>
-        <Component {...matchProps} />
-      </div>
-    )} />
-  )
-}
+
 
 export default class App extends Component {
   constructor(props) {
