@@ -12,6 +12,14 @@ body {
   height: 100%;
 }
 
+button {
+  border-radius: 2px;
+  padding: 7px;
+  outline: none;
+  background-color: #eee;
+  border: 1px solid lightgray;
+}
+
 h1 {
   margin-left: 0;
   margin-top: 5px;
@@ -124,11 +132,6 @@ input:focus {
   margin-right: 5px;
   padding: 0 5px;
   box-sizing: border-box;
-}
-
-.add-button {
-  height: 30px;
-  width: 60px;
 }
 
 .delete {

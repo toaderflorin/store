@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Products } from '../api/products.js'
 import ReactDOM from 'react-dom'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class AddProduct extends Component {
   onAddClick() {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     Meteor.call('products.insert', text)
+    browserHistory.push('/admin')
   }
 
   render() {
