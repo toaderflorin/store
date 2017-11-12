@@ -13,7 +13,7 @@ export default class Product extends Component {
     return (
       <div className="product">
         <button className="delete" onClick={this.deleteProduct} >Delete</button>
-        <button onClick={this.onDetailsClick}>Details</button>
+        <button className="delete" onClick={this.onDetailsClick}>Details</button>
         <span className="text">
           {this.props.product.text}
         </span>

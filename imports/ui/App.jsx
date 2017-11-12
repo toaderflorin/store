@@ -6,12 +6,10 @@ import Search from './Search'
 import Admin from './Admin'
 import Accounts from './Accounts'
 import ProductDetails from './ProductDetails'
-import Header from './Header'
 import Basket from './Basket'
 import AddProduct from './AddProduct'
 import { browserHistory } from '../../client/main.jsx'
-
-
+import Layout from './Layout'
 
 export default class App extends Component {
   constructor(props) {
@@ -23,12 +21,12 @@ export default class App extends Component {
       <Router history={browserHistory}>
         <div>
           <Route path="/login" component={Login}/>
-          <DefaultLayout exact path="/" component={Search}/>
-          <DefaultLayout path="/admin" component={Admin}/>
-          <DefaultLayout path="/new" component={AddProduct}/>
-          <DefaultLayout path="/basket" component={Basket}/>
-          <DefaultLayout path="/accounts" component={Accounts}/>
-          <DefaultLayout path="/accounts" render={(props) => <ProductDetails {...props} />} />
+          <Layout exact path="/" component={Search}/>
+          <Layout path="/admin" component={Admin}/>
+          <Layout path="/new" component={AddProduct}/>
+          <Layout path="/basket" component={Basket}/>
+          <Layout path="/accounts" component={Accounts}/>
+          <Layout path="/accounts" render={(props) => <ProductDetails {...props}/>}/>
         </div>
       </Router>
     </div>

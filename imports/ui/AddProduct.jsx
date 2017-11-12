@@ -18,7 +18,8 @@ export default class AddProduct extends Component {
       <div className="container">
         {Meteor.userId() ?
           <div>
-            <input className="add-product" type="text" ref="textInput" placeholder="Type to add new products" />
+            <input className="add-product" type="text" ref="textInput" placeholder="Product name" />
+            <input className="add-product" type="text" ref="price" placeholder="Product price" />
             <button className="add-button" onClick={this.onAddClick}>Add</button>
             <br/>
           </div> : ''
