@@ -21,6 +21,11 @@ export default class Header extends Component {
   }
 
   render() {
+    const items = 0
+    if (Session.get('basket')) {
+     items = Session.get('basket').length
+   }
+
     return (
       <div className="header">
         <div className="container">
@@ -33,7 +38,7 @@ export default class Header extends Component {
             {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
               <br/>
-               <Link to='/basket'>Basket</Link> | <a href="/" onClick={this.logoutClick}>Log out</a></div>
+               <Link to='/basket'>Basket({items})</Link> | <a href="/" onClick={this.logoutClick}>Log out</a></div>
               : ''}
           </div>
         </div>

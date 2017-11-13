@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Session } from 'meteor/session'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class SearchResult extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class SearchResult extends Component {
     const arr = Session.get('basket')
     arr.push(this.props.product)
     Session.set('basket', arr)
-    alert('Added product to basket.')
+    browserHistory.push('/')
   }
 
   render() {
