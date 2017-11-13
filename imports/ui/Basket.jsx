@@ -21,7 +21,6 @@ export default class Basket extends Component {
     const arr = Session.get('basket')
 
     if(confirm('Are you sure?')) {
-      console.log('Deleting ', product._id)
       arr.splice(arr.indexOf(product), 1)
       Session.set('basket', arr)
       browserHistory.push('/basket')
@@ -33,9 +32,15 @@ export default class Basket extends Component {
     const obj = basket.map((i) => <BasketItem key={(Math.random() * 10000000).toString()}
       product={i} deleteClick={this.deleteClick.bind(this, i)}/>)
 
+    let total = Math.sum(...basket.map((i) => i.price))
+
     return (
       <div className="container">
         {obj}
+        <h3>Total</h3>
+        <p>
+          {total}
+        </p>
       </div>
     )
   }

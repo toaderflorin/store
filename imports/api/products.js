@@ -29,6 +29,7 @@ Meteor.methods({
     Products.insert({
       text: product.text,
       url: product.url,
+      price: product.price,
       createdAt: new Date(),
       owner: Meteor.userId(),
     })
