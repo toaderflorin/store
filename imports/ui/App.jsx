@@ -8,8 +8,8 @@ import Accounts from './Accounts'
 import ProductDetails from './ProductDetails'
 import Basket from './Basket'
 import AddProduct from './AddProduct'
-import { browserHistory } from '../../client/main.jsx'
 import Layout from './Layout'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class App extends Component {
   constructor(props) {
@@ -17,18 +17,20 @@ export default class App extends Component {
   }
 
   render() {
-    return <div>
-      <Router history={browserHistory}>
-        <div>
-          <Route path="/login" component={Login}/>
-          <Layout exact path="/" component={Search}/>
-          <Layout path="/admin" component={Admin}/>
-          <Layout path="/new" component={AddProduct}/>
-          <Layout path="/basket" component={Basket}/>
-          <Layout path="/accounts" component={Accounts}/>
-          <Layout path="/ProductDetails" render={(props) => <ProductDetails {...props}/>}/>
-        </div>
-      </Router>
-    </div>
+    return (
+      <div>
+        <Router history={browserHistory}>
+          <div>
+            <Route path="/login" component={Login}/>
+            <Layout exact path="/" component={Search}/>
+            <Layout path="/admin" component={Admin}/>
+            <Layout path="/new" component={AddProduct}/>
+            <Layout path="/basket" component={Basket}/>
+            <Layout path="/accounts" component={Accounts}/>
+            <Layout path="/ProductDetails" render={(props) => <ProductDetails {...props}/>}/>
+          </div>
+        </Router>
+      </div>
+    )
   }
 }

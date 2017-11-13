@@ -11,7 +11,20 @@ export default class SearchResult extends Component {
 
   addClick() {
     const arr = Session.get('basket')
-    arr.push(this.props.product)
+    const item = (arr.filter((i) => i.product._id === this.props.product._id))[0]
+
+    if (item === undefined) {
+      arr.push({
+        product: this.props.product,
+        count: 1
+      })
+    } else {
+      arr.push({
+        product: this.props.product,
+        count: item.count + 1
+      })
+    }
+
     Session.set('basket', arr)
     browserHistory.push('/')
   }
