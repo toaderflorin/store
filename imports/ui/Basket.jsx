@@ -46,7 +46,7 @@ export default class Basket extends Component {
           {obj}
           <h3>Total</h3>
           <p>
-            {total}
+            ${total}
           </p>
         </div>
       )

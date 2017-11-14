@@ -5,7 +5,7 @@ import { browserHistory } from '../../client/main.jsx'
 export default class SearchResult extends Component {
   constructor(props) {
     super(props)
-    this.deleteProduct = this.deleteProduct.bind(this)    
+    this.deleteProduct = this.deleteProduct.bind(this)
   }
 
   deleteProduct() {
@@ -18,7 +18,7 @@ export default class SearchResult extends Component {
     return (
       <div className="basket-item">
         {this.props.product.text}
-        <button onClick={this.addClick}>Add to Basket</button>
+        <button onClick={this.deleteProduct}>Delete</button>
       </div>
     )
   }
