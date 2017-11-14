@@ -2,7 +2,7 @@ import { createContainer } from 'meteor/react-meteor-data'
 import { Tracker } from 'meteor/tracker'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import Product from './Product.jsx'
+import AdminItem from './AdminItem.jsx'
 import { Meteor } from 'meteor/meteor'
 import { Link } from 'react-router-dom'
 import { Products } from '../api/products.js'
@@ -36,7 +36,7 @@ export default class Admin extends Component {
   render() {
     const filteredProducts = this.state.products
     const renderedProducts  = filteredProducts.map((product) => {
-      return <Product key={product._id} product={product} />
+      return <AdminItem key={product._id} product={product} />
     })
 
     return (

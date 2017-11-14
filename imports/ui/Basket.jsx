@@ -33,24 +33,29 @@ export default class Basket extends Component {
     let total = 0
     let object = undefined
 
-    if (basket !== undefined) {
-
+    if (basket !== undefined && basket.length > 0) {
       obj = basket.map((i) => <BasketItem key={(Math.random() * 10000000).toString()}
         product={i} deleteClick={this.deleteClick.bind(this, i)}/>)
 
       for (let i of basket) {
         total += i.product.price * i.count
       }
-    }
 
-    return (
-      <div className="container">
-        {obj}
-        <h3>Total</h3>
-        <p>
-          {total}
-        </p>
-      </div>
-    )
+      return (
+        <div className="container">
+          {obj}
+          <h3>Total</h3>
+          <p>
+            {total}
+          </p>
+        </div>
+      )
+    } else {
+      return (
+        <div className="container">
+          Basket is empty.
+        </div>
+      )
+    }
   }
 }

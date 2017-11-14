@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import Product from './Product'
 import { Products } from '../api/products'
-import SearchResult from './SearchResult.jsx'
+import AdminItem from './AdminItem.jsx'
 import { browserHistory } from '../../client/main.jsx'
 
 export default class Search extends Component {
@@ -32,7 +32,7 @@ export default class Search extends Component {
 
   render() {
     const renderedProducts = this.state.products.map(function (product) {
-      return <SearchResult key={product._id} product={product} />
+      return <Product key={product._id} product={product} />
     })
 
     return (
