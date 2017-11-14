@@ -5,9 +5,8 @@ import { browserHistory } from '../../client/main.jsx'
 export default class Product extends Component {
   constructor(props) {
     super(props)
-    console.log(props.product)
-    this.deleteProduct = this.deleteProduct.bind(this)
     this.onDetailsClick = this.onDetailsClick.bind(this)
+    this.onAddClick = this.onAddClick.bind(this)
   }
 
   render() {
@@ -15,7 +14,7 @@ export default class Product extends Component {
       <div className="product" style={{
         backgroundImage: `url('${this.props.product.url}')`
       }}>
-        <button className="delete" onClick={this.deleteProduct} >Delete</button>
+        <button className="delete" onClick={this.onAddClick} >Add</button>
         <button className="delete" onClick={this.onDetailsClick}>Details</button>
         <span className="text">
           {this.props.product.text}
@@ -24,11 +23,23 @@ export default class Product extends Component {
     )
   }
 
-  deleteProduct() {
-    if (confirm('Are you sure?')) {
-      Meteor.call('products.remove', this.props.product._id)
+  onAddClick() {
+    const arr = Session.get('basket')
+    const item = (arr.filter((i) => i.product._id === this.props.product._id))[0]
+
+    if (item === undefined) {
+      arr.push({
+        product: this.props.product,
+        count: 1
+      })
+    } else {
+      item.count++
     }
+
+    Session.set('basket', arr)
+    browserHistory.push('/')
   }
+
 
   onDetailsClick() {
     browserHistory.push('details/' + this.props.product._id)
