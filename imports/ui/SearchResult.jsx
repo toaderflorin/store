@@ -19,10 +19,7 @@ export default class SearchResult extends Component {
         count: 1
       })
     } else {
-      arr.push({
-        product: this.props.product,
-        count: item.count + 1
-      })
+      item.count++
     }
 
     Session.set('basket', arr)

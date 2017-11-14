@@ -8,6 +8,7 @@ export default class Basket extends Component {
   constructor() {
     super()
     this.deleteClick = this.deleteClick.bind(this)
+    this.render = this.render.bind(this)
   }
 
   componentWillMount() {
@@ -29,10 +30,18 @@ export default class Basket extends Component {
 
   render() {
     const basket = Session.get('basket')
-    const obj = basket.map((i) => <BasketItem key={(Math.random() * 10000000).toString()}
-      product={i} deleteClick={this.deleteClick.bind(this, i)}/>)
+    let total = 0
+    let object = undefined
 
-    let total = Math.sum(...basket.map((i) => i.price))
+    if (basket !== undefined) {
+
+      obj = basket.map((i) => <BasketItem key={(Math.random() * 10000000).toString()}
+        product={i} deleteClick={this.deleteClick.bind(this, i)}/>)
+
+      for (let i of basket) {
+        total += i.product.price * i.count
+      }
+    }
 
     return (
       <div className="container">
