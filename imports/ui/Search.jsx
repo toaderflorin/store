@@ -41,7 +41,7 @@ export default class Search extends Component {
           <input className="add-product" type="text" ref="textInput" placeholder="Search" />
           <button className="add-button">Search</button>
           <br/><br/>
-          <div>
+          <div className="search-container">
             {renderedProducts}
           </div>
         </div>

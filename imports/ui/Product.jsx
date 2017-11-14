@@ -40,7 +40,6 @@ export default class Product extends Component {
     browserHistory.push('/')
   }
 
-
   onDetailsClick() {
     browserHistory.push('details/' + this.props.product._id)
   }
