@@ -27,8 +27,9 @@ export default class App extends Component {
             <Layout path="/new" component={AddProduct}/>
             <Layout path="/basket" component={Basket}/>
             <Layout path="/accounts" component={Accounts}/>
-            <Layout path="/ProductDetails" render={(props) => <ProductDetails {...props}/>}/>
+            <Layout path="/details/:id" component={ProductDetails} />
           </div>
+           {/* render={(props) => <ProductDetails {...props}/>} */}
         </Router>
       </div>
     )
