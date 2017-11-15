@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Header from './Header.jsx'
+import Product from './Product.jsx'
 import { Products } from '../api/products.js'
 
 export default class ProductDetails extends Component {
@@ -23,8 +24,7 @@ export default class ProductDetails extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h2>This is the product detail page.</h2>
+      <div className="container">        
         {this.state.product ?
           this.state.product.text : ''
         }
