@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Router, Route } from 'react-router'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
   constructor(props) {
@@ -31,15 +31,18 @@ export default class Header extends Component {
         <div className="container">
           <div style={{ float: "left" }}>
             <h1>The Store</h1>
-            <Link to='/'>Home</Link> | <Link to='/admin'>Admin</Link>
+            <NavLink className="link" exact to='/' activeClassName="linkActive">Home</NavLink>
+            <NavLink className="link" activeClassName="linkActive" to='/admin'>Admin</NavLink>
           </div>
 
           <div style={{ float: "right", textAlign: "right", marginTop: "20px" }}>
-            {Meteor.user() ?
+              {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
-              <br/>
-               <Link to='/basket'>Basket({items})</Link> | <a href="/" onClick={this.logoutClick}>Log out</a></div>
-              : ''}
+              <div style={{ marginTop: "14px" }}>
+                <NavLink className="link" activeClassName="linkActive" to="/basket">Basket({items})</NavLink>
+                <a href="/" onClick={this.logoutClick}>Log out</a></div>
+              </div>
+            : ''}
           </div>
         </div>
       </div>

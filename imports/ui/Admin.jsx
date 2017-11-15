@@ -12,9 +12,7 @@ export default class Admin extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.state = {
-      products: []
-    }
+    this.state = { products: [] }
   }
 
   componentDidMount() {
