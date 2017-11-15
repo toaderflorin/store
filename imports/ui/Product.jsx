@@ -11,14 +11,15 @@ export default class Product extends Component {
 
   render() {
     return (
-      <div className="product" style={{
-        backgroundImage: `url('${this.props.product.url}')`
-      }}>
-        <button className="delete" onClick={this.onAddClick} >Add</button>
-        <button className="delete" onClick={this.onDetailsClick}>Details</button>
+      <div className="product">
+        <div className="product-image" style={{backgroundImage: `url('${this.props.product.url}')`}}
+          onClick={this.onDetailsClick}></div>
+
         <span className="text">
           {this.props.product.text}
         </span>
+
+        <button className="buy" onClick={this.onAddClick} >Buy</button>
       </div>
     )
   }
@@ -37,7 +38,7 @@ export default class Product extends Component {
     }
 
     Session.set('basket', arr)
-    browserHistory.push('/')
+    browserHistory.push('/basket')
   }
 
   onDetailsClick() {

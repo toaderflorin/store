@@ -19,9 +19,8 @@ export default class Basket extends Component {
   }
 
   deleteClick(product) {
-    const arr = Session.get('basket')
-
-    if(confirm('Are you sure?')) {
+    if(confirm('Are you sure?')) {  
+      const arr = Session.get('basket')
       arr.splice(arr.indexOf(product), 1)
       Session.set('basket', arr)
       browserHistory.push('/basket')
@@ -45,9 +44,7 @@ export default class Basket extends Component {
         <div className="container">
           {obj}
           <h3>Total</h3>
-          <p>
-            ${total}
-          </p>
+          <p>${total}</p>
         </div>
       )
     } else {

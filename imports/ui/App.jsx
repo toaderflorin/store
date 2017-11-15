@@ -29,7 +29,6 @@ export default class App extends Component {
             <Layout path="/accounts" component={Accounts}/>
             <Layout path="/details/:id" component={ProductDetails} />
           </div>
-           {/* render={(props) => <ProductDetails {...props}/>} */}
         </Router>
       </div>
     )
