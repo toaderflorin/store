@@ -18,7 +18,7 @@ export default class SearchResult extends Component {
     return (
       <div className="basket-item">
         {this.props.product.text}
-        <button onClick={this.deleteProduct}>Delete</button>
+        <button className="buy" onClick={this.deleteProduct}>Delete</button>
       </div>
     )
   }
