@@ -44,7 +44,7 @@ input:focus {
 
 .basket-item {
   padding: 7px 15px;
-  background-color: #f8f8f8;
+  border-bottom: 1px #eee solid;
   margin-bottom: 8px;
   width: 100%;
   display: flex;
@@ -124,11 +124,12 @@ input:focus {
 }
 
 .product {
-  margin: 5px 15px 5px 0;
+  margin: 5px 20px 35px 0;
   padding: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: translateY(20px);
 }
 
 .product-image {

@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import { Session } from 'meteor/session'
-import { browserHistory } from '../../client/main.jsx'
 import BasketItem from './BasketItem'
 import classnames from 'classnames'
+import { Session } from 'meteor/session'
+import { browserHistory } from '../../client/main.jsx'
 
 export default class Basket extends Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class Basket extends Component {
   }
 
   deleteClick(product) {
-    if(confirm('Are you sure?')) {  
+    if(confirm('Are you sure?')) {
       const arr = Session.get('basket')
       arr.splice(arr.indexOf(product), 1)
       Session.set('basket', arr)

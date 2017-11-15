@@ -10,7 +10,7 @@ export default class BasketItem extends Component {
     return (
       <div className="basket-item">
         {this.props.product.product.text}({this.props.product.count})
-        <button onClick={this.props.deleteClick}>Delete</button>
+        <button className="buy" onClick={this.props.deleteClick}>Delete</button>
       </div>
     )
   }
