@@ -17,17 +17,29 @@ export default class Accounts extends Component {
     return <div className="container">
       <div style={{ padding: '15px' }}>
         <h2>Create user account</h2>
-        <div>
+
+        <b>
+          Full Name
+        </b>
+        <p>
           <input className="wide" type="text" name="text" placeholder="Full name" onChange={this.fullnameChanged} />
-        </div>
-        <div>
+        </p>
+
+        <b>
+          User Name
+        </b>
+        <p>
           <input className="wide" type="text" name="text" placeholder="User name" onChange={this.usernameChanged} />
-        </div>
-        <div>
+        </p>
+
+        <b>
+          Password
+        </b>
+        <p>
           <input className="wide" type="password" name="text" placeholder="Password" onChange={this.passwordChanged} />
-        </div>
+        </p>
         <div>
-          <input value="Create" type="button" onClick={this.create} />
+          <button value="Create" type="button" onClick={this.create} />
         </div>
         <br/>
         {this.state.errorMessage}

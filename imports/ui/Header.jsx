@@ -38,10 +38,10 @@ export default class Header extends Component {
           <div style={{ float: "right", textAlign: "right", marginTop: "20px" }}>
               {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
-              <div style={{ marginTop: "14px" }}>
-                <NavLink className="link" activeClassName="linkActive" to="/basket">Basket({items})</NavLink>
-                &nbsp;
+              <div style={{ marginTop: "14px" }}>                            
                 <a href="/" onClick={this.logoutClick}>Log out</a></div>
+                &nbsp;
+                <NavLink className="link" activeClassName="linkActive" to="/basket">Basket({items})</NavLink>
               </div>
             : ''}
           </div>

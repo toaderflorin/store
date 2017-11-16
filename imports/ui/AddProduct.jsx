@@ -32,10 +32,13 @@ export default class AddProduct extends Component {
             <p>
               <input className="add-product" type="text" ref="textInput" placeholder="Product name"/>
             </p>
-            <b>Price</b>
+            <p>
+              <b>Price</b>
+            </p>
             <p>
               <input className="add-product" type="text" ref="priceInput" placeholder="Product price"/>
             </p>
+            prom
             <b>Description</b>
             <p>
               <textarea style={{ height: "200px", fontFamily: "Arial", padding: "7px" }} className="add-product" type="text" ref="descriptionInput" placeholder=""/>

@@ -17,7 +17,7 @@ export default class Product extends Component {
             onClick={this.onDetailsClick}></div>
         </div>
         <div><b>{this.props.product.text}</b></div>
-        <div>${this.props.product.price}.99</div>
+        <div>${this.props.product.price}</div>
         <button className="buy" onClick={this.onAddClick} >Buy</button>
       </div>
     )

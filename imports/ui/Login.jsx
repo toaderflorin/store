@@ -20,8 +20,10 @@ export default class Login extends Component {
         <div>
           <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
         </div>
-        <input type="button" value="Log In" onClick={this.login}/>
-        <br/><br/>
+        <p>
+          <button onClick={this.login}>Log On</button>
+        </p>
+        <br/>
         <div>
           Don't have an <a href="/accounts">account</a>?
         </div>

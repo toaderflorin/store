@@ -15,15 +15,22 @@ body {
 
 a {
   text-decoration: none;
+  color: red;
 }
 
 button {
   border-radius: 4px;
-  background-color: #444;
+  background-color: #222;
   color: white;
   border: none;
   padding: 6px 12px;
   outline: none;
+  transition: all 0.4s;
+}
+
+button:hover {
+  background-color: #666;
+  transition: all 0.4s;
 }
 
 h1 {
@@ -70,9 +77,9 @@ input:focus {
 }
 
 .basket-item {
-  padding: 7px 15px;
+  padding: 7px 10px;
   border-bottom: 1px #eee solid;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   width: 100%;
   display: flex;
   justify-content: space-between;
