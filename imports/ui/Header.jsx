@@ -35,13 +35,14 @@ export default class Header extends Component {
             <NavLink className="link" activeClassName="link-active" to='/admin'>Admin</NavLink>
           </div>
 
-          <div style={{ float: "right", textAlign: "right", marginTop: "20px" }}>
+          <div className="user-section">
               {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
-              <div style={{ marginTop: "14px" }}>                            
-                <a href="/" onClick={this.logoutClick}>Log out</a></div>
-                &nbsp;
-                <NavLink className="link" activeClassName="linkActive" to="/basket">Basket({items})</NavLink>
+                <div style={{ marginTop: "14px" }}>
+                  <a href="/" onClick={this.logoutClick}>Log out</a>
+                  &nbsp;
+                  <NavLink className="link" activeClassName="link-active" to="/basket">Basket({items})</NavLink>
+                </div>
               </div>
             : ''}
           </div>

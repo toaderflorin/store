@@ -20,7 +20,7 @@ export default class App extends Component {
     return (
       <div>
         <Router history={browserHistory}>
-          <div>
+          <div className="main">
             <Route path="/login" component={Login}/>
             <Layout exact path="/" component={Search}/>
             <Layout path="/admin" component={Admin}/>
@@ -30,6 +30,9 @@ export default class App extends Component {
             <Layout path="/details/:id" component={ProductDetails} />
           </div>
         </Router>
+        <div className="container footer">          
+          Bla bla bla
+        </div>
       </div>
     )
   }

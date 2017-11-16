@@ -31,19 +31,16 @@ export default class Search extends Component {
   }
 
   render() {
-    const renderedProducts = this.state.products.map(function (product) {
-      return <Product key={product._id} product={product} />
-    })
+    const renderedProducts = this.state.products.map(
+      (product) => <Product key={product._id} product={product} />)
 
     return (
-      <div className="root">
-        <div className="container">
-          <input type="text" ref="textInput" placeholder="Search" />
-          <button className="add-button">Search</button>
-          <br/><br/>
-          <div className="product-list">
-            {renderedProducts}
-          </div>
+      <div className="container">
+        <input className="search-input" type="text" ref="textInput" placeholder="Search"/>
+        <button className="add-button">Search</button>
+        <br/><br/>
+        <div className="product-list">
+          {renderedProducts}
         </div>
       </div>
     )

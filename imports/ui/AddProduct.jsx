@@ -17,7 +17,8 @@ export default class AddProduct extends Component {
     Meteor.call('products.insert', {
       text: text,
       url: url,
-      price: price
+      price: price,
+      description: description
     })
 
     browserHistory.push('/admin')
