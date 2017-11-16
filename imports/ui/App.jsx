@@ -27,12 +27,15 @@ export default class App extends Component {
             <Layout path="/new" component={AddProduct}/>
             <Layout path="/basket" component={Basket}/>
             <Layout path="/accounts" component={Accounts}/>
-            <Layout path="/details/:id" component={ProductDetails} />
+            <Layout path="/details/:id" component={ProductDetails}/>
+            <br/><br/>
           </div>
         </Router>
-        <div className="container footer">          
-          Bla bla bla
+        <br/>
+        <div className="container footer">
+          Copyright (c) ACME Company
         </div>
+        <br/>
       </div>
     )
   }

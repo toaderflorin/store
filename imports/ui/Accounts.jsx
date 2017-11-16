@@ -39,7 +39,7 @@ export default class Accounts extends Component {
           <input className="wide" type="password" name="text" placeholder="Password" onChange={this.passwordChanged} />
         </p>
         <div>
-          <button value="Create" type="button" onClick={this.create} />
+          <button type="button" onClick={this.create}>Create</button>
         </div>
         <br/>
         {this.state.errorMessage}

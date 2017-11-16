@@ -41,7 +41,6 @@ export default class ProductDetails extends Component {
     browserHistory.push('/basket')
   }
 
-
   render() {
     return (
       <div className="container">
