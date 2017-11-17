@@ -12,6 +12,7 @@ export default class Admin extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.onAddClick = this.onAddClick.bind(this)
     this.state = { products: [] }
   }
 
@@ -23,6 +24,10 @@ export default class Admin extends Component {
         products
       })
     })
+  }
+
+  onAddClick() {
+    browserHistory.push('/new')
   }
 
   handleSubmit(e) {
@@ -43,7 +48,7 @@ export default class Admin extends Component {
           <h1>Administration</h1>
           {Meteor.userId() ?
             <div>
-              <Link to='/new'>Add new</Link><br/><br/>
+              <button onClick={this.onAddClick}>New Product</button>
             </div> : ''
           }
           <br/>

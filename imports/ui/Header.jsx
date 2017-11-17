@@ -31,9 +31,9 @@ export default class Header extends Component {
         <div className="container">
           <div style={{ float: "left" }}>
             <h1>The Store</h1>
-            <NavLink className="link" exact to='/' activeClassName="link-active">Men</NavLink>
-            <NavLink className="link" exact to='/' activeClassName="link-active">Women</NavLink>
-            <NavLink className="link" exact to='/' activeClassName="link-active">Kids</NavLink>
+            <NavLink className="link" to='/products/men' activeClassName="link-active">Men</NavLink>
+            <NavLink className="link" to='/products/women' activeClassName="link-active">Women</NavLink>
+            <NavLink className="link" to='/products/kids' activeClassName="link-active">Kids</NavLink>
             <NavLink className="link" activeClassName="link-active" to='/admin'>Admin</NavLink>
           </div>
 

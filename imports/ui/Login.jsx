@@ -45,7 +45,7 @@ export default class Login extends Component {
         alert('Could not log in.')
       } else {
         Session.set('basket', [])
-        browserHistory.push('/')
+        browserHistory.push('/products/men')
       }
     })
   }

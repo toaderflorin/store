@@ -42,8 +42,16 @@ export default class AddProduct extends Component {
             </p>
             <b>Description</b>
             <p>
-              <textarea style={{ height: "200px", fontFamily: "Arial", padding: "7px" }}
+              <textarea style={{ height: "150px", fontFamily: "Arial", padding: "7px" }}
                 className="add-product" type="text" ref="descriptionInput" placeholder="A short description for the product"/>
+            </p>
+            <b>Category</b>
+            <p>
+              <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Kids</option>
+              </select>
             </p>
             <b>URL</b>
             <p>

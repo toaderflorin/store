@@ -21,8 +21,10 @@ export default class App extends Component {
       <div>
         <Router history={browserHistory}>
           <div className="main">
-            <Route path="/login" component={Login}/>
-            <Layout exact path="/" component={Search}/>
+            <Route exact path="/" component={Login}/>
+            <Layout path="/products/men" component={Search}/>
+            <Layout path="/products/women" component={Search}/>
+            <Layout path="/products/kids" component={Search}/>
             <Layout path="/admin" component={Admin}/>
             <Layout path="/new" component={AddProduct}/>
             <Layout path="/basket" component={Basket}/>
@@ -30,7 +32,7 @@ export default class App extends Component {
             <Layout path="/details/:id" component={ProductDetails}/>
             <br/><br/>
           </div>
-        </Router>        
+        </Router>
         <div className="container footer" style={{ textAlign: "center" }}>
           <p>
             Copyright (c) ACME Company
