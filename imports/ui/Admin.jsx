@@ -40,7 +40,7 @@ export default class Admin extends Component {
     return (
       <div className="root">
         <div className="container">
-          <h2>Administration</h2>
+          <h1>Administration</h1>
           {Meteor.userId() ?
             <div>
               <Link to='/new'>Add new</Link><br/><br/>

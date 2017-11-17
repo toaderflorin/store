@@ -5,6 +5,7 @@ import { Router, Route } from 'react-router'
 export default class Accounts extends Component {
   constructor(props) {
     super(props)
+
     this.create = this.create.bind(this)
     this.usernameChanged = this.usernameChanged.bind(this)
     this.passwordChanged = this.passwordChanged.bind(this)
@@ -16,7 +17,7 @@ export default class Accounts extends Component {
   render() {
     return <div className="container">
       <div style={{ padding: '15px' }}>
-        <h2>Create user account</h2>
+        <h1>Create user account</h1>
 
         <b>
           Full Name

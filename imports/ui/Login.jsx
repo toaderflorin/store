@@ -13,7 +13,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Log In</h1>
+        <h1>The Store</h1>
         <div>
           <input placeholder="Username" onChange={this.usernameChanged}/>
         </div>
