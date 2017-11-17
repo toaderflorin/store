@@ -54,6 +54,16 @@ input:focus {
   box-shadow: 0 0 9px rgba(255, 0, 0, 0.1);
 }
 
+textarea {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 9px rgba(255, 0, 0, 0.1);
+}
+
 .user-section {
   float: right;
   text-align: right;
@@ -75,13 +85,13 @@ input:focus {
 }
 
 .link:hover {
-  background-color: #444;
-  border-bottom: 3px solid #444;
+  background-color: #555;
+  border-bottom: 3px solid #555;
   transition: background-color 0.5s;
 }
 
 .link-active:hover {
-  background-color: #444;
+  background-color: #555;
   border-bottom: 3px solid red;
   transition: background-color 0.5s;
 }
@@ -219,7 +229,7 @@ input:focus {
 }
 
 .add-product {
-  width: 350px;
+  width: 500px;
   height: 30px;
   margin: 0;
   margin-right: 5px;

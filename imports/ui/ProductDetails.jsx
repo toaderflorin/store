@@ -50,7 +50,7 @@ export default class ProductDetails extends Component {
             <div className="product-image-noanim" style={{backgroundImage: `url('${this.state.product.url}')`}}></div>
             <div className="product-details-data">
               <h2>{this.state.product.text}</h2>
-              <p>Description goes here</p>
+              <p>{this.state.product.description}</p>
               <button onClick={this.onAddClick}>Buy</button>
             </div>
           </div>

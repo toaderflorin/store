@@ -9,6 +9,19 @@ export default class AddProduct extends Component {
     this.onAddClick = this.onAddClick.bind(this)
   }
 
+  componentDidMount() {
+    const handle = Meteor.subscribe('products')
+
+    Tracker.autorun(() => {
+      let products = Products.find({ _id: this.props.match.params.id }, { sort: { createdAt: -1 } }).fetch()
+      let product = products[0]
+
+      this.setState({
+        product
+      })
+    })
+  }
+
   onAddClick() {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     const url = ReactDOM.findDOMNode(this.refs.urlInput).value.trim()

@@ -41,7 +41,7 @@ export default class Header extends Component {
                 <div style={{ marginTop: "14px" }}>
                   <a href="/" onClick={this.logoutClick}>Log out</a>
                   &nbsp;
-                  <NavLink className="link" activeClassName="link-active" to="/basket">Basket({items})</NavLink>
+                  <NavLink className="link" activeClassName="link-active" to="/basket">Basket ({items})</NavLink>
                 </div>
               </div>
             : ''}
