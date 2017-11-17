@@ -30,10 +30,14 @@ export default class App extends Component {
             <Layout path="/details/:id" component={ProductDetails}/>
             <br/><br/>
           </div>
-        </Router>
-        <br/>
-        <div className="container footer">
-          Copyright (c) ACME Company
+        </Router>        
+        <div className="container footer" style={{ textAlign: "center" }}>
+          <p>
+            Copyright (c) ACME Company
+          </p>
+          <p>
+            FACEBOOK INSTAGRAM TWITTER
+          </p>
         </div>
         <br/>
       </div>

@@ -3,7 +3,7 @@ import { Products } from '../api/products.js'
 import ReactDOM from 'react-dom'
 import { browserHistory } from '../../client/main.jsx'
 
-export default class AddProduct extends Component {
+export default class EditProduct extends Component {
   constructor(props) {
     super(props)
     this.onAddClick = this.onAddClick.bind(this)
@@ -13,7 +13,14 @@ export default class AddProduct extends Component {
     const handle = Meteor.subscribe('products')
 
     Tracker.autorun(() => {
-      let products = Products.find({ _id: this.props.match.params.id }, { sort: { createdAt: -1 } }).fetch()
+      let products = Products.find({
+        _id: this.props.match.params.id
+      }, {
+        sort: {
+          createdAt: -1
+        }
+      }).fetch()
+
       let product = products[0]
 
       this.setState({

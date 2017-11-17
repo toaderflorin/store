@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Products } from '../api/products.js'
 import ReactDOM from 'react-dom'
+import { Products } from '../api/products.js'
 import { browserHistory } from '../../client/main.jsx'
 
 export default class AddProduct extends Component {
@@ -42,7 +42,8 @@ export default class AddProduct extends Component {
             </p>
             <b>Description</b>
             <p>
-              <textarea style={{ height: "200px", fontFamily: "Arial", padding: "7px" }} className="add-product" type="text" ref="descriptionInput" placeholder=""/>
+              <textarea style={{ height: "200px", fontFamily: "Arial", padding: "7px" }}
+                className="add-product" type="text" ref="descriptionInput" placeholder=""/>
             </p>
             <b>URL</b>
             <p>

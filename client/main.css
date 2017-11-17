@@ -237,6 +237,12 @@ textarea:focus {
   box-sizing: border-box;
 }
 
+.add-product::placeholder {
+  color: #bbb;
+  font-size: 13px;
+}
+
 .footer {
-  font-size: 12px;
+  padding: 10px 0;
+  font-size: 12.5px;
 }
