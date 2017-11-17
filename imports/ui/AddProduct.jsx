@@ -13,13 +13,17 @@ export default class AddProduct extends Component {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     const url = ReactDOM.findDOMNode(this.refs.urlInput).value.trim()
     const description = ReactDOM.findDOMNode(this.refs.descriptionInput).value.trim()
-    const price = parseFloat(ReactDOM.findDOMNode(this.refs.priceInput).value.trim())
+    const price = parseFloat(ReactDOM.findDOMNode(this.refs.gender).value.trim())
+    const gender = ReactDOM.findDOMNode(this.refs.gender).value
+
+    alert(gender)
 
     Meteor.call('products.insert', {
       text: text,
       url: url,
       price: price,
-      description: description
+      description: description,
+      gender: gender
     })
 
     browserHistory.push('/admin')
@@ -47,10 +51,10 @@ export default class AddProduct extends Component {
             </p>
             <b>Category</b>
             <p>
-              <select>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Kids</option>
+              <select ref="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="K">Kids</option>
               </select>
             </p>
             <b>URL</b>
