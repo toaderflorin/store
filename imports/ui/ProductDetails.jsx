@@ -47,7 +47,8 @@ export default class ProductDetails extends Component {
         <br/>
         {this.state.product ?
           <div className="product-details">
-            <div className="product-image-noanim" style={{backgroundImage: `url('${this.state.product.url}')`}}></div>
+            <div className="product-image-noanim"
+              style={{ minWidth: "300px", width: '300px', backgroundImage: `url('${this.state.product.url}')` }}></div>
             <div className="product-details-data">
               <h2>{this.state.product.text}</h2>
               <p>{this.state.product.description}</p>
