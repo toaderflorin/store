@@ -27,6 +27,7 @@ button {
   padding: 6px 12px;
   outline: none;
   transition: all 0.4s;
+  cursor: hand;
 }
 
 button:hover {
@@ -133,7 +134,7 @@ textarea:focus {
   color: white;
   margin: 0;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-  height: 117px;
+  height: 121px;
 }
 
 .header a {

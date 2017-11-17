@@ -31,14 +31,16 @@ export default class Header extends Component {
         <div className="container">
           <div style={{ float: "left" }}>
             <h1>The Store</h1>
-            <NavLink className="link" exact to='/' activeClassName="link-active">Home</NavLink>
+            <NavLink className="link" exact to='/' activeClassName="link-active">Men</NavLink>
+            <NavLink className="link" exact to='/' activeClassName="link-active">Women</NavLink>
+            <NavLink className="link" exact to='/' activeClassName="link-active">Kids</NavLink>
             <NavLink className="link" activeClassName="link-active" to='/admin'>Admin</NavLink>
           </div>
 
           <div className="user-section">
               {Meteor.user() ?
               <div>Welcome <b><i>{Meteor.user().profile.name}</i></b>
-                <div style={{ marginTop: "14px" }}>
+                <div style={{ marginTop: "11px" }}>
                   <a href="/" onClick={this.logoutClick}>Log out</a>
                   &nbsp;
                   <NavLink className="link" activeClassName="link-active" to="/basket">Basket ({items})</NavLink>

@@ -15,7 +15,13 @@ export default class ProductDetails extends Component {
     const handle = Meteor.subscribe('products')
 
     Tracker.autorun(() => {
-      let products = Products.find({ _id: this.props.match.params.id }, { sort: { createdAt: -1 } }).fetch()
+      let products = Products.find({
+        _id: this.props.match.params.id
+      }, {
+        sort: { createdAt: -1
+        }
+      }).fetch()
+
       let product = products[0]
 
       this.setState({
@@ -52,7 +58,17 @@ export default class ProductDetails extends Component {
             <div className="product-details-data">
               <h2>{this.state.product.text}</h2>
               <p>{this.state.product.description}</p>
-              <button onClick={this.onAddClick}>Buy</button>
+
+              <select>
+                <option>Small (S)</option>
+                <option>Medium (M)</option>
+                <option>Large (L)</option>
+                <option>Extra Large (XL)</option>
+              </select>
+              
+              <p>
+                <button onClick={this.onAddClick}>Buy</button>
+              </p>
             </div>
           </div>
           : ''
