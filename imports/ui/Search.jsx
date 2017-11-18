@@ -16,7 +16,7 @@ export default class Search extends Component {
   componentWillMount() {
     const basket = Session.get('basket')
     if (!basket) {
-      browserHistory.push('/login')
+      Session.set('basket', [])
     }
   }
 

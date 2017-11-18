@@ -109,7 +109,7 @@ textarea:focus {
 }
 
 .basket-item {
-  padding: 7px 10px;
+  padding: 7px 10px 10px 0;
   border-bottom: 1px #eee solid;
   margin-bottom: 5px;
   width: 100%;
