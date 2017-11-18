@@ -50,7 +50,9 @@ export default class Basket extends Component {
     } else {
       return (
         <div className="container">
+          <br/>
           Basket is empty.
+          <br/>
         </div>
       )
     }

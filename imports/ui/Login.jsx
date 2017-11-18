@@ -12,20 +12,22 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>The Store</h1>
-        <div>
-          <input placeholder="Username" onChange={this.usernameChanged}/>
-        </div>
-        <div>
-          <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
-        </div>
-        <p>
-          <button onClick={this.login}>Log On</button>
-        </p>
-        <br/>
-        <div>
-          Don't have an <a href="/accounts">account</a>?
+      <div className="fullscreen black">
+        <div className="login-box">
+          <h1>The Store</h1>
+          <div>
+            <input placeholder="Username" onChange={this.usernameChanged}/>
+          </div>
+          <div>
+            <input placeholder="Password" type="password" onChange={this.passwordChanged}/>
+          </div>
+          <p>
+            <button onClick={this.login}>Log On</button>
+          </p>
+          <br/>
+          <div>
+            Don't have an <a href="/accounts">account</a>?
+          </div>
         </div>
       </div>
     )

@@ -13,7 +13,8 @@ export default class Product extends Component {
     return (
       <div className="product">
         <div className="product-image-container">
-          <div className="product-image" style={{backgroundImage: `url('${this.props.product.url}')`}}
+          <div className="product-image"
+            style={{ backgroundImage: `url('${this.props.product.url}')` }}
             onClick={this.onDetailsClick}></div>
         </div>
         <div><b>{this.props.product.text}</b></div>

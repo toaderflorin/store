@@ -47,6 +47,11 @@ input {
   border: 1px solid #ddd;
 }
 
+select {
+  padding: 4px;
+  outline: none;
+}
+
 input:hover {
   background-color: #fdfdfd;
 }
@@ -116,6 +121,12 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   position: absolute;
+}
+
+.login-box {
+  background-color: white;
+  padding: 30px 50px;
+  border-radius: 8px;
 }
 
 .black {
