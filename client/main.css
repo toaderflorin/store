@@ -128,17 +128,18 @@ textarea:focus {
 .fullscreen {
   width: 100%;
   height: calc(100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: absolute;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-box {
   background-color: white;
-  padding: 30px 50px;
+  padding: 30px 60px;
   border-radius: 8px;
+  max-width: 240px;
+  margin-top: 100px;
 }
 
 .black {
