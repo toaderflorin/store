@@ -118,6 +118,13 @@ textarea:focus {
   align-items: center;
 }
 
+.basket-item-image {
+  background-size: cover;
+  width: 64px;
+  height: 64px;
+  background-color: #eee;
+}
+
 .fullscreen {
   width: 100%;
   height: calc(100%);
@@ -214,6 +221,7 @@ textarea:focus {
   width: 300px;
   height: 450px;
   background-size: cover;
+  background-position: center;
   transition: all 0.2s;
 }
 
