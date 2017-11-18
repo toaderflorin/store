@@ -13,7 +13,7 @@ export default class AddProduct extends Component {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim()
     const url = ReactDOM.findDOMNode(this.refs.urlInput).value.trim()
     const description = ReactDOM.findDOMNode(this.refs.descriptionInput).value.trim()
-    const price = parseFloat(ReactDOM.findDOMNode(this.refs.gender).value.trim())
+    const price = parseFloat(ReactDOM.findDOMNode(this.refs.priceInput).value.trim())
     const gender = ReactDOM.findDOMNode(this.refs.gender).value
 
     alert(gender)
