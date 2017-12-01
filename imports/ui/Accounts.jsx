@@ -11,7 +11,9 @@ export default class Accounts extends Component {
     this.passwordChanged = this.passwordChanged.bind(this)
     this.fullnameChanged = this.fullnameChanged.bind(this)
 
-    this.state = { errorMessage: '' }
+    this.state = {
+      errorMessage: ''
+    }
   }
 
   render() {
@@ -25,7 +27,6 @@ export default class Accounts extends Component {
         <p>
           <input className="wide" type="text" name="text" placeholder="Full name" onChange={this.fullnameChanged} />
         </p>
-
         <b>
           User Name
         </b>
