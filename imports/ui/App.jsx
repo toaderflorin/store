@@ -22,9 +22,7 @@ export default class App extends Component {
         <Router history={browserHistory}>
           <div className="main">
             <Route exact path="/" component={Login}/>
-            <Layout path="/products/men" component={Search} categ="m"/>
-            <Layout path="/products/women" component={Search} categ="f"/>
-            <Layout path="/products/kids" component={Search} categ="k"/>
+            <Layout path="/products/:categ" component={Search}/>            
             <Layout path="/admin" component={Admin}/>
             <Layout path="/new" component={AddProduct}/>
             <Layout path="/basket" component={Basket}/>

@@ -32,6 +32,7 @@ Meteor.methods({
       description: product.description,
       price: product.price,
       createdAt: new Date(),
+      gender: product.gender,
       owner: Meteor.userId(),
     })
   },

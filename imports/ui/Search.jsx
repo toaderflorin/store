@@ -8,6 +8,9 @@ import { browserHistory } from '../../client/main.jsx'
 export default class Search extends Component {
   constructor(props) {
     super(props)
+
+    this.componentDidMount = this.componentDidMount.bind(this)
+
     this.state = {
       products: []
     }
@@ -15,6 +18,7 @@ export default class Search extends Component {
 
   componentWillMount() {
     const basket = Session.get('basket')
+
     if (!basket) {
       Session.set('basket', [])
     }
@@ -22,11 +26,29 @@ export default class Search extends Component {
 
   componentDidMount() {
     const handle = Meteor.subscribe('products')
+
+    console.log('PROPS IS', this.props.match.params.categ)
+    
+    let gender = 'm'
+
+    if (this.props.match.params.categ === 'women') {
+      gender = 'f'
+    } else {
+      gender = 'k'
+    }
+
     Tracker.autorun(() => {
-      let products = Products.find({}, { sort: { createdAt: -1 } }).fetch()
-      this.setState({
-        products
-      })
+      let products = Products.find({
+        gender: {
+          $eq: gender
+        }
+      }, {
+        sort: {
+          createdAt: -1
+        }
+      }).fetch()
+
+      this.setState({ products })
     })
   }
 

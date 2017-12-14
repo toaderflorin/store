@@ -16,8 +16,6 @@ export default class AddProduct extends Component {
     const price = parseFloat(ReactDOM.findDOMNode(this.refs.priceInput).value.trim())
     const gender = ReactDOM.findDOMNode(this.refs.gender).value
 
-    alert(gender)
-
     Meteor.call('products.insert', {
       text: text,
       url: url,
