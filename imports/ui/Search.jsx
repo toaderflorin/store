@@ -26,15 +26,12 @@ export default class Search extends Component {
 
   componentDidMount() {
     const handle = Meteor.subscribe('products')
-
-    console.log('PROPS IS', this.props.match.params.categ)
-    
-    let gender = 'm'
+    let gender = 'M'
 
     if (this.props.match.params.categ === 'women') {
-      gender = 'f'
-    } else {
-      gender = 'k'
+      gender = 'F'
+    } else if (this.props.match.params.categ === 'kids') {
+      gender = 'K'
     }
 
     Tracker.autorun(() => {
