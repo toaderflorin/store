@@ -1,14 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
+import AdminItem from './AdminItem.jsx'
 import Product from './Product'
 import { Products } from '../api/products'
-import AdminItem from './AdminItem.jsx'
 import { browserHistory } from '../../client/main.jsx'
 
 export default class Search extends Component {
   constructor(props) {
     super(props)
-
     this.componentDidMount = this.componentDidMount.bind(this)
 
     this.state = {
@@ -26,25 +25,17 @@ export default class Search extends Component {
 
   componentDidMount() {
     const handle = Meteor.subscribe('products')
-    let gender = 'M'
 
-    if (this.props.match.params.categ === 'women') {
-      gender = 'F'
-    } else if (this.props.match.params.categ === 'kids') {
-      gender = 'K'
-    }
+    const gender = ((g) => {
+      switch (g) {
+        case 'men': return 'M'
+        case 'women': return 'F'
+        case 'kids': return 'K'
+      }
+    })(this.props.match.params.categ)
 
     Tracker.autorun(() => {
-      let products = Products.find({
-        gender: {
-          $eq: gender
-        }
-      }, {
-        sort: {
-          createdAt: -1
-        }
-      }).fetch()
-
+      let products = Products.find({ gender: { $eq: gender }}, { sort: { createdAt: -1 }}).fetch()
       this.setState({ products })
     })
   }
